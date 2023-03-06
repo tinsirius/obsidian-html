@@ -138,9 +138,9 @@ def ExportStaticFiles(pb):
         html = html.replace("{html_url_prefix}", html_url_prefix).replace("{left_pane_content}", "").replace("{right_pane_content}", "")
         f.write(html)
 
-    c = OpenIncludedFileBinary("html/favicon.ico")
-    with open(pb.paths["html_output_folder"].joinpath("favicon.ico"), "wb") as f:
-        f.write(c)
+    # c = OpenIncludedFileBinary("html/favicon.ico")
+    # with open(pb.paths["html_output_folder"].joinpath("favicon.ico"), "wb") as f:
+    #     f.write(c)
 
     if pb.gc("toggles/features/graph/enabled", cached=True):
         # create grapher files

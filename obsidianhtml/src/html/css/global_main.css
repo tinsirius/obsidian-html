@@ -89,7 +89,7 @@ blockquote p {
     scroll-margin-top: 2rem;
     max-width: __max_note_width__;
     flex: auto;
-    font-size: 11pt;
+    font-size: calc(min(3vw, 13pt));
 }
 .container_filler {
     background-color: var(--bg-note);
@@ -101,8 +101,12 @@ blockquote p {
 }
 
 .container img {
-    max-width: calc(100% - 0.4rem);
-    padding: 0.2rem;
+    /* max-width: calc(100% - 0.4rem);
+    padding: 0.2rem; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
 .container figure {
     margin: 0;
@@ -301,8 +305,6 @@ blockquote p {
     margin-left: -0.7rem;
     margin-top: 1rem;
 }
-
-
 
 /* ---------------------------------------- Table troubles ---------------------------------------- */
 
@@ -540,7 +542,7 @@ a.navbar-link:hover {
 }
 
 h3 {
-    font-size: 13pt;
+    font-size: calc(min(15pt, 3.5vw));
     font-weight: 500;
     border-bottom: 1px dashed var(--bg-accent3);
     padding: 2px;
@@ -642,7 +644,7 @@ embeddedtitle {
 
 h1,
 embeddedtitle {
-    font-size: 17pt;
+    font-size: calc(min(25pt, 5vw));
     line-height: 34px;
     margin-top: 0px;
     margin-bottom: 16px;
@@ -656,7 +658,7 @@ h1:not(:first-of-type) {
 }
 
 h2 {
-    font-size: 14pt;
+    font-size: calc(min(16pt, 4vw));
     border-bottom: 1px dotted #777070;
     font-weight: 600;
     padding-bottom: 0.2rem;
