@@ -105,6 +105,7 @@ md_source_host_urls: []
 # Will be inputted into the Html template as page title
 # Not used anywhere else atm.
 site_name: 'Obsidian-Html/Notes'
+index_title: ''
 
 # Use when deploying to https://mydomain.com/html_prefix/ instead of https://mydomain.com/
 # use '/html_prefix' (prepend slash, no slash at the end)
@@ -196,7 +197,7 @@ toggles:
 
   features:
     styling:
-      layout: documentation               # documentation, tabs, minimal
+      layout: documentation               # documentation, tabs, minimal , tin
       header_template: full               # <full, minimal> currently only supported for documentation layout
       max_note_width: 120rem              # not supported for layout: tabs
       add_toc: '<DEPRECATED>'                       # add "[TOC]" (Table of Contents) when missing

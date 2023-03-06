@@ -285,6 +285,7 @@ def convert_markdown_page_to_html_and_export(fo: "FileObject", pb, backlink_node
 
             # add embedded title
             if not hide:
+                title = pb.gc("index_title") if title == "index" else title
                 html_body = f"<embeddedtitle>{title}</embeddedtitle>\n" + html_body
 
     # ------------------------------------------------------------------
@@ -349,7 +350,7 @@ def convert_markdown_page_to_html_and_export(fo: "FileObject", pb, backlink_node
 
     # [16] Wrap body html in valid html structure from template
     # ------------------------------------------------------------------
-    html = PopulateTemplate(pb, node["id"], pb.dynamic_inclusions, pb.html_template, content=html_body)
+    html = PopulateTemplate(pb, node["id"], pb.dynamic_inclusions, pb.html_template, content=html_body, title = title)
 
     html = html.replace("{pinnedNode}", node["id"]).replace("{html_url_prefix}", html_url_prefix).replace("{page_depth}", str(page_depth))
     # [?] Documentation styling: Navbar
@@ -403,10 +404,11 @@ def pythonmarkdown_convert_md_to_html(pb, page, rel_dst_path):
         CustomTocExtension(),
         MermaidExtension(),
         CallOutExtension(),
-        "pymdownx.arithmatex",
+        # "pymdownx.arithmatex",
     ]
 
-    extension_configs = {"codehilite": {"linenums": False}, "pymdownx.arithmatex": {"generic": True}}
+    # extension_configs = {"codehilite": {"linenums": False}, "pymdownx.arithmatex": {"generic": True}}
+    extension_configs = {"codehilite": {"linenums": False}}
 
     if pb.gc("toggles/features/dataview/enabled"):
         extensions.append("dataview")
@@ -422,6 +424,7 @@ def pythonmarkdown_convert_md_to_html(pb, page, rel_dst_path):
     extensions.append(AdmonitionExtension())
     extensions.append(BlockLinkExtension())
 
+    page = page.replace("\\", "\\\\")
     html_body = markdown.markdown(page, extensions=extensions, extension_configs=extension_configs)
     return html_body
 

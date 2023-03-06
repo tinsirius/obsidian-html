@@ -114,9 +114,11 @@ def recurseTagList(tagtree, tagpath, pb, level):
     md += f"\n> [View all tags]({html_url_prefix}/obs.html/tags/index.html)"
 
     # Compile html
-    extension_configs = {"codehilite": {"linenums": False}, "pymdownx.arithmatex": {"generic": True}}
-
-    html_body = markdown.markdown(md, extensions=["extra", "codehilite", "obs_toc", "mermaid", "callout", "pymdownx.arithmatex"], extension_configs=extension_configs)
+    # extension_configs = {"codehilite": {"linenums": False}, "pymdownx.arithmatex": {"generic": True}}
+    # html_body = markdown.markdown(md, extensions=["extra", "codehilite", "obs_toc", "mermaid", "callout", "pymdownx.arithmatex"], extension_configs=extension_configs)
+    
+    extension_configs = {"codehilite": {"linenums": False}}
+    html_body = markdown.markdown(md, extensions=["extra", "codehilite", "obs_toc", "mermaid", "callout"], extension_configs=extension_configs)
 
     di = '<link rel="stylesheet" href="' + html_url_prefix + '/obs.html/static/taglist.css" />'
 
